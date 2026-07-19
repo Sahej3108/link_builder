@@ -353,7 +353,7 @@ formInputs.forEach(input => {
         this.style.transition = 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
         setTimeout(() => {
             this.style.borderColor = 'var(--primary)';
-            this.style.boxShadow = '0 0 25px rgba(255, 107, 53, 0.3), inset 0 1px 0 rgba(255, 107, 53, 0.1)';
+            this.style.boxShadow = '0 0 25px rgba(251, 76, 1, 0.3), inset 0 1px 0 rgba(251, 76, 1, 0.1)';
             this.style.transform = 'scale(1.02)';
         }, 10);
     });
@@ -365,7 +365,7 @@ formInputs.forEach(input => {
     });
     
     input.addEventListener('input', function() {
-        this.style.boxShadow = '0 0 25px rgba(255, 107, 53, 0.25), inset 0 1px 0 rgba(255, 107, 53, 0.08)';
+        this.style.boxShadow = '0 0 25px rgba(251, 76, 1, 0.25), inset 0 1px 0 rgba(251, 76, 1, 0.08)';
     });
 });
 
@@ -398,7 +398,7 @@ const createScrollToTopBtn = () => {
         display: none;
         z-index: 999;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        box-shadow: 0 4px 12px rgba(251, 76, 1, 0.3);
     `;
     
     document.body.appendChild(scrollBtn);
@@ -528,25 +528,25 @@ const services=[
 {
 title:"AI Search Optimisation",
 
-desc:"Improve visibility across AI-powered search experiences. We optimize content structure and authority signals for better reach in emerging platforms."
+desc:"Improve your visibility across AI-powered search experiences and emerging discovery LLMs platforms. We build Premium LLMs Citation Backlinks content structure, authority signals, and search relevance for better reach. Stay discoverable as search evolves beyond traditional rankings."
 },
 
 {
 title:"SaaS Link Building",
 
-desc:"High-authority backlinks tailored for SaaS growth. Drive qualified traffic and stronger rankings."
+desc:"Build high-authority backlinks tailored specifically for SaaS growth and competitive markets. Our campaigns focus on driving qualified traffic, stronger rankings, and brand authority. Scale organic acquisition with links that support long-term business growth."
 },
 
 {
 title:"Strategic Blogger Outreach",
 
-desc:"Connect with trusted publishers and secure meaningful placements that strengthen your presence."
+desc:"Connect with trusted publishers and industry-relevant blogs through personalized outreach. We secure meaningful placements that strengthen your online presence and credibility. Create authentic relationships that deliver lasting SEO value."
 },
 
 {
 title:"Multilingual Link Building",
 
-desc:"Expand globally with region-specific link-building strategies."
+desc:"Expand your brand presence across global markets with region-specific link-building strategies. We acquire high-quality backlinks in multiple languages while maintaining local relevance. Reach international audiences and grow visibility beyond borders."
 }
 
 ];
