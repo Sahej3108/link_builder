@@ -614,8 +614,10 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
 }
 
 .stack-wrap{
+ 
   position:sticky;
-  top:60px;
+    top:0;
+  
   height:calc(100vh - 60px);
   display:flex;
   align-items:center;
@@ -624,7 +626,7 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
 
 .stack-card{
   width:100%;
-  max-height:750px;
+  max-height: 550px;
   min-height:570px;
   display:flex;
   align-items:center;
@@ -696,37 +698,47 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
 @media (max-width:900px){
 
     .stack-card{
-        flex-wrap:nowrap;
-        gap:10px;
-        padding:20px 15px;
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        justify-content:flex-start;
+        min-height:auto;
+        padding:28px 20px;
+        gap:20px;
     }
 
     .stack-inner{
-        flex:0 0 60%;
-    }
-
-    .stack-tags{
-        flex:0 0 40%;
-        align-items:flex-end;
-    }
-
-    .stack-card h2{
-        font-size:1.2rem;
+        width:100%;
+        max-width:100%;
     }
 
     .stack-card p{
-        font-size:.8rem;
-        line-height:1.5;
+        margin-bottom:0;
+    }
+
+    .stack-tags{
+        width:100%;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+        margin:0;
+        align-items:stretch;
+            align-items:start;     
     }
 
     .stack-tags span{
-        font-size:.7rem;
-        padding:8px 10px;
-        max-width:140px;
+        width:100%;
+        max-width:none;
+        height:100%; 
+        margin:0 !important;
+        padding:12px;
+        text-align:center;
+        font-size:.8rem;
     }
 
     .stack-num{
-        font-size:2rem;
+        margin-top:8px;
+        font-size:2.4rem;
     }
 
 }
