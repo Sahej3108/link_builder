@@ -207,3 +207,50 @@ if (backToTopBtn) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+
+
+
+
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const form = this;
+
+    const data = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        company: form.company.value,
+        message: form.message.value
+    };
+
+    try {
+
+        const response = await fetch(
+            "https://script.google.com/macros/s/AKfycbxjNi5tmji_6zm7WqXrY8_qH5GIT8FuKJyAPr7oM9ohMcxvhfMTiNRcxhwWDz37nTYqCQ/exec",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }
+        );
+
+        const result = await response.json();
+
+        if (result.status === "success") {
+            alert("Thank you! Your enquiry has been submitted.");
+            form.reset();
+        } else {
+            alert(result.message || "Something went wrong.");
+        }
+
+    } catch (err) {
+        alert("Unable to submit the form.");
+        console.error(err);
+    }
+
+});
