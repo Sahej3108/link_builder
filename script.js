@@ -207,41 +207,60 @@ if (backToTopBtn) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
-const name = document.getElementById("name").value.trim();
-const email = document.getElementById("email").value.trim();
-const phone = document.getElementById("phoneNumber").value.trim();
-const company = document.getElementById("company").value.trim();
-const message = document.getElementById("message").value.trim();
 
-const nameRegex = /^[A-Za-z\s]{2,50}$/;
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const phoneRegex = /^[0-9]{7,15}$/;
 
-if(!nameRegex.test(name)){
-    alert("Please enter a valid name.");
-    return;
-}
 
-if(!emailRegex.test(email)){
-    alert("Please enter a valid business email.");
-    return;
-}
 
-if(!phoneRegex.test(phone)){
-    alert("Please enter a valid phone number.");
-    return;
-}
 
-if(company.length < 2){
-    alert("Please enter your company name.");
-    return;
-}
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
 
-if(message.length < 15){
-    alert("Please describe your project in at least 15 characters.");
-    return;
-}
+    e.preventDefault();
 
+    const form = this;
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const company = form.company.value.trim();
+    const message = form.message.value.trim();
+
+    const nameRegex = /^[A-Za-z\s'-]{2,50}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!nameRegex.test(name)){
+        alert("Name should contain only letters.");
+        return;
+    }
+
+    if(!emailRegex.test(email)){
+        alert("Please enter a valid email.");
+        return;
+    }
+
+    if(!validatePhone()){
+        return;
+    }
+
+    if(company.length < 2){
+        alert("Please enter your company name.");
+        return;
+    }
+
+    if(message.length < 15){
+        alert("Please enter at least 15 characters.");
+        return;
+    }
+
+    const data = {
+        name,
+        email,
+        phone,
+        company,
+        message
+    };
+
+    // fetch() code...
+});
 
 
 
