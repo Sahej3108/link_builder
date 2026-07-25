@@ -419,9 +419,14 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
 
 
 
-/* FOOTER */
+
 /* FOOTER */
 .footer{background:var(--navy);color:#fff;padding:70px 5% 24px;}
+.footer .logo-img{
+    height:90px;
+    width:auto;
+    max-width:320px;
+}
 
 .footer-grid{
   width:100%;
@@ -433,7 +438,7 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
 
 .footer-col-brand p{
   color:rgba(255,255,255,.6);
-  font-size:.85rem;
+  font-size:18px;
   margin:16px 0;
 }
 
@@ -443,6 +448,18 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
   align-items:center;
   gap:12px;
 }
+.socials a{
+    text-decoration:none;
+    color:inherit;
+    display:inline-flex;
+}
+
+.socials a:hover span{
+    background:var(--accent);
+    transform:translateY(-4px);
+    transition:.3s ease;
+}
+
 .socials span{
   width:34px;
   height:34px;
@@ -471,11 +488,11 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
 .footer-contact-line .label{
   color:rgba(255,255,255,.45);
   display:block;
-  font-size:.75rem;
+  font-size:16px;
 }
 .footer-contact-line span:last-child{
   color:rgba(255,255,255,.7);
-  font-size:.85rem;
+  font-size:16px;
 }
 
 .copyright{
@@ -615,14 +632,15 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
 
 .stack-wrap{
  
-  position:sticky;
+  position:relative;
     top:0;
-  
+  min-height:100vh;
   height:calc(100vh - 60px);
   display:flex;
   align-items:center;
-  padding:0 4%;
+  padding:0 4%; 
 }
+
 
 .stack-card{
   width:100%;
@@ -637,7 +655,8 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
   background:var(--accent);
   flex-wrap:wrap;
   box-shadow:0 30px 60px rgba(0,0,0,.4);
-  position:relative;
+   position:sticky;
+    top:80px;
   overflow:hidden;
 }
 .stack-card.dark{
