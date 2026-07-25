@@ -632,15 +632,14 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
 
 .stack-wrap{
  
-  position:relative;
+  position:sticky;
     top:0;
-  min-height:100vh;
+  
   height:calc(100vh - 60px);
   display:flex;
   align-items:center;
-  padding:0 4%; 
+  padding:0 4%;
 }
-
 
 .stack-card{
   width:100%;
@@ -655,8 +654,7 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
   background:var(--accent);
   flex-wrap:wrap;
   box-shadow:0 30px 60px rgba(0,0,0,.4);
-   position:sticky;
-    top:80px;
+  position:relative;
   overflow:hidden;
 }
 .stack-card.dark{
