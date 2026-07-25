@@ -508,9 +508,8 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
 @media (max-width:900px){
 
 .footer-grid{
-    display:grid;
     grid-template-columns:1fr;
-    gap:35px;
+    gap:32px;
 }
 .footer-contact-line span{
     word-break:break-word;
@@ -532,11 +531,13 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
     word-wrap:break-word;
     overflow-wrap:break-word;
 }
+
   .nav-links{
     position:fixed;top:66px;left:0;right:0;background:#fff;flex-direction:column;
     padding:22px;gap:20px;border-bottom:1px solid var(--border);
     transform:translateY(-150%);transition:.3s;
   }
+}
   .nav-links.active{transform:translateY(0);}
   .desktop-only{display:none;}
   .mobile-only-cta{display:block;text-align:center;}
