@@ -207,6 +207,40 @@ if (backToTopBtn) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+const name = document.getElementById("name").value.trim();
+const email = document.getElementById("email").value.trim();
+const phone = document.getElementById("phoneNumber").value.trim();
+const company = document.getElementById("company").value.trim();
+const message = document.getElementById("message").value.trim();
+
+const nameRegex = /^[A-Za-z\s]{2,50}$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phoneRegex = /^[0-9]{7,15}$/;
+
+if(!nameRegex.test(name)){
+    alert("Please enter a valid name.");
+    return;
+}
+
+if(!emailRegex.test(email)){
+    alert("Please enter a valid business email.");
+    return;
+}
+
+if(!phoneRegex.test(phone)){
+    alert("Please enter a valid phone number.");
+    return;
+}
+
+if(company.length < 2){
+    alert("Please enter your company name.");
+    return;
+}
+
+if(message.length < 15){
+    alert("Please describe your project in at least 15 characters.");
+    return;
+}
 
 
 
