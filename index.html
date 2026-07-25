@@ -386,7 +386,13 @@
     </div>
     <div id="formWrap">
       <form id="contactForm">
-  <input type="text" placeholder="Your name" required>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    placeholder="Your Name"
+    required
+    oninput="this.value=this.value.replace(/[^A-Za-z\s'-]/g,'')">
   <input type="email" placeholder="Work email" required>
 
   <div class="phone-group">
@@ -600,7 +606,15 @@
   <option value="+260">🇿🇲 Zambia +260</option>
   <option value="+263">🇿🇼 Zimbabwe +263</option>
 </select>
-    <input type="tel" id="phoneNumber" placeholder="Phone number" required>
+    <input
+    type="tel"
+    id="phoneNumber"
+    name="phone"
+    inputmode="numeric"
+    autocomplete="tel"
+    oninput="this.value=this.value.replace(/\D/g,'')"
+    required
+>
   </div>
   <span id="phoneError" class="phone-error hidden">Please enter a valid phone number</span>
 
@@ -652,12 +666,10 @@
       <a href="#why">Why LinkOutMedia</a>
       <a href="#services">Services</a>
       <a href="#process">Our Process</a>
-      <a href="#case-studies">Case Studies</a>
     </div>
     <div class="footer-col">
       <h4>Resources</h4>
       <a href="#benefits">Benefits</a>
-      <a href="#testimonials">Reviews</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </div>
