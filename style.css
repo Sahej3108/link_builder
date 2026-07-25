@@ -512,7 +512,19 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
 
 .footer-grid{
     grid-template-columns:1fr;
-    gap:30px;
+    gap:32px;
+}
+.footer-contact-line span{
+    word-break:break-word;
+    overflow-wrap:anywhere;
+}
+.footer .logo-img{
+    height:70px;
+    max-width:220px;
+}
+.footer{
+    padding:50px 20px 25px;
+}
 }
 
 .footer,
@@ -719,9 +731,10 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
         flex-direction:column;
         align-items:flex-start;
         justify-content:flex-start;
-        min-height:620;
+        min: height 620px;
         padding:28px 20px;
         gap:20px;
+        
     }
 
     .stack-inner{
@@ -860,4 +873,3 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
 .plan-btn:active{
     transform: translateY(-2px) scale(.98);
 }
-
