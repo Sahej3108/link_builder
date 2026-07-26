@@ -136,69 +136,52 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-function initStackScroll(){
-  const wraps = Array.from(document.querySelectorAll('.stack-wrap'));
-  if (!wraps.length) return;
+function initStackScroll() {
 
-  const SIDE_INSET = '4%'; // matches .stack-wrap's own side padding
+    const wraps = Array.from(document.querySelectorAll(".stack-wrap"));
+    if (!wraps.length) return;
 
-  function updateStack(){
-    const vh = window.innerHeight;
+    const SIDE_INSET = "4%";
+
+    function updateStack() {
+
+        const vh = window.innerHeight;
+
+        wraps.forEach((wrap, index) => {
+
+            // your existing code
+
+        });
+
+    }
 
     let ticking = false;
 
-window.addEventListener("scroll", () => {
-    if (!ticking) {
-        requestAnimationFrame(() => {
-            updateStack();
-            ticking = false;
-        });
+    window.addEventListener("scroll", () => {
 
-        ticking = true;
-    }
-});
+        if (!ticking) {
 
-    wraps.forEach((wrap, index) => {
-      const card = wrap.querySelector('.stack-card');
-      const rect = wrap.getBoundingClientRect();
+            requestAnimationFrame(() => {
 
-      if (rect.top <= 0 && rect.bottom > vh){
-        // section is being scrolled through — pin card to top of viewport
-        card.style.position = 'relative';        
-        card.style.margin = '0';
-        card.style.left = SIDE_INSET;
-        card.style.right = SIDE_INSET;
-        card.style.width = 'auto';
-        card.style.zIndex = wraps.length - index;
-      } else if (rect.bottom <= vh){
-        // section has fully scrolled past — lock card to bottom of its own wrap
-        card.style.position = 'absolute';
-        card.style.top = 'auto';
-        card.style.bottom = '0';
-        card.style.left = SIDE_INSET;
-        card.style.right = SIDE_INSET;
-        card.style.margin = '0';
-        card.style.width = 'auto';
-      } else {
-        // section hasn't been reached yet — normal flow
-        card.style.position = 'relative';
-        card.style.top = 'auto';
-        card.style.bottom = 'auto';
-        card.style.left = 'auto';
-        card.style.right = 'auto';
-        card.style.margin = '0 auto';
-        card.style.width = '100%';
-      }
+                updateStack();
 
-    });
-  }
+                ticking = false;
 
-  window.addEventListener('scroll', updateStack, { passive:true });
-  window.addEventListener('resize', updateStack);
-  updateStack();
+            });
+
+            ticking = true;
+
+        }
+
+    }, { passive: true });
+
+    window.addEventListener("resize", updateStack);
+
+    updateStack();
+
 }
 
-document.addEventListener('DOMContentLoaded', initStackScroll);
+document.addEventListener("DOMContentLoaded", initStackScroll);
 
 // Floating "back to top" button — show once the user has scrolled near the bottom of the page
 const backToTopBtn = document.getElementById('backToTop');
