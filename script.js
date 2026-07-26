@@ -145,14 +145,26 @@ function initStackScroll(){
   function updateStack(){
     const vh = window.innerHeight;
 
+    let ticking = false;
+
+window.addEventListener("scroll", () => {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            updateStack();
+            ticking = false;
+        });
+
+        ticking = true;
+    }
+});
+
     wraps.forEach((wrap, index) => {
       const card = wrap.querySelector('.stack-card');
       const rect = wrap.getBoundingClientRect();
 
       if (rect.top <= 0 && rect.bottom > vh){
         // section is being scrolled through — pin card to top of viewport
-        card.style.position = 'fixed';
-        card.style.top = '0';
+        card.style.position = 'relative';        
         card.style.margin = '0';
         card.style.left = SIDE_INSET;
         card.style.right = SIDE_INSET;
