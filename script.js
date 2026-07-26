@@ -190,7 +190,6 @@ window.addEventListener("scroll", () => {
         card.style.width = '100%';
       }
 
-      card.style.zIndex = 10 + index;
     });
   }
 
