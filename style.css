@@ -653,7 +653,6 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
 
 .stack-card{
   width:100%;
-  max-height: 550px;
   min-height:570px;
   display:flex;
   align-items:center;
@@ -666,7 +665,14 @@ h2{font-size:2.2rem;font-weight:800;margin-bottom:44px;color:var(--navy);text-al
   box-shadow:0 30px 60px rgba(0,0,0,.4);
   position:relative;
   overflow:hidden;
+  will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transition:
+        transform .55s cubic-bezier(.22,1,.36,1),
+        opacity .55s ease;
 }
+
 .stack-card.dark{
   background:var(--navy);
   color:#fff;
