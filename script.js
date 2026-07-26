@@ -169,6 +169,7 @@ window.addEventListener("scroll", () => {
         card.style.left = SIDE_INSET;
         card.style.right = SIDE_INSET;
         card.style.width = 'auto';
+        card.style.zIndex = wraps.length - index;
       } else if (rect.bottom <= vh){
         // section has fully scrolled past — lock card to bottom of its own wrap
         card.style.position = 'absolute';
