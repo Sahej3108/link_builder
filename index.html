@@ -393,7 +393,13 @@
     placeholder="Your Name"
     required
     oninput="this.value=this.value.replace(/[^A-Za-z\s'-]/g,'')">
-  <input type="email" placeholder="Work email" required>
+  <input
+  type="email"
+  id="email"
+  name="email"
+  placeholder="Work email"
+  required
+>
 
   <div class="phone-group">
     <select id="countryCode" class="country-code">
@@ -617,8 +623,20 @@
 >
   </div>
   <span id="phoneError" class="phone-error hidden">Please enter a valid phone number</span>
+  <input
+  type="text"
+  id="company"
+  name="company"
+  placeholder="Company Name"
+>
 
-  <textarea placeholder="Tell us about your project" rows="4"></textarea>
+  <textarea
+  id="message"
+  name="message"
+  placeholder="Tell us about your project"
+  rows="4"
+  required
+></textarea>
   <button type="submit">Submit</button>
 </form>
       <div id="successMsg" class="success-msg hidden">
