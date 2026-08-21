@@ -276,16 +276,15 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
     try {
 
-        const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbxjNi5tmji_6zm7WqXrY8_qH5GIT8FuKJyAPr7oM9ohMcxvhfMTiNRcxhwWDz37nTYqCQ/exec",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            }
-        );
+       const response = await fetch(
+  "https://script.google.com/macros/s/AKfycbxjNi5tmji_6zm7WqXrY8_qH5GIT8FuKJyAPr7oM9ohMcxvhfMTiNRcxhwWDz37nTYqCQ/exec",
+  {
+    method: "POST",
+    body: JSON.stringify(data)
+  }
+);
+
+const result = await response.json();
 
         const result = await response.json();
 
