@@ -207,101 +207,29 @@ if (backToTopBtn) {
 
 
 
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-    e.preventDefault();
+  const data = {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    phone: document.getElementById("phoneNumber").value.trim(),
+    company: document.getElementById("company").value.trim(),
+    message: document.getElementById("message").value.trim()
+  };
 
-    const form = this;
+  try {
+    await fetch("https://script.google.com/macros/s/AKfycbxjNi5tmji_6zm7WqXrY8_qH5GIT8FuKJyAPr7oM9ohMcxvhfMTiNRcxhwWDz37nTYqCQ/exec", {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(data)
+    });
 
-   const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("phoneNumber").value.trim();
-  const company = document.getElementById("company").value.trim();
-  const message = document.getElementById("message").value.trim();
+    alert("Thank you! Your enquiry has been submitted.");
+    this.reset();
 
-    const nameRegex = /^[A-Za-z\s'-]{2,50}$/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if(!nameRegex.test(name)){
-        alert("Name should contain only letters.");
-        return;
-    }
-
-    if(!emailRegex.test(email)){
-        alert("Please enter a valid email.");
-        return;
-    }
-
-    if(!validatePhone()){
-        return;
-    }
-
-    if(company.length < 2){
-        alert("Please enter your company name.");
-        return;
-    }
-
-    if(message.length < 15){
-        alert("Please enter at least 15 characters.");
-        return;
-    }
-
-    const data = {
-    
-        name,
-        email,
-        phone,
-        company,
-        message
-    };
-
-    // fetch() code...
-});
-
-
-
-
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-
-    e.preventDefault();
-
-    const form = this;
-
-    const data = {
-  name: document.getElementById("name").value.trim(),
-  email: document.getElementById("email").value.trim(),
-  phone: document.getElementById("phoneNumber").value.trim(),
-  company: document.getElementById("company").value.trim(),
-  message: document.getElementById("message").value.trim()
-};
-
-    try {
-
-       const response = await fetch(
-  "https://script.google.com/macros/s/AKfycbxjNi5tmji_6zm7WqXrY8_qH5GIT8FuKJyAPr7oM9ohMcxvhfMTiNRcxhwWDz37nTYqCQ/exec",
-  {
-    method: "POST",
-    redirect: "follow",
-    body: JSON.stringify(data)
+  } catch (err) {
+    console.error(err);
+    alert("Submission failed.");
   }
-);
-
-const result = await response.json();
-
-const result = await response.json();
-
-        const result = await response.json();
-
-        if (result.status === "success") {
-            alert("Thank you! Your enquiry has been submitted.");
-            form.reset();
-        } else {
-            alert(result.message || "Something went wrong.");
-        }
-
-    } catch (err) {
-        alert("Unable to submit the form.");
-        console.error(err);
-    }
-
 });
