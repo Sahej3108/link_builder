@@ -206,8 +206,7 @@ if (backToTopBtn) {
 
 
 
-
-document.getElementById("contactForm").addEventListener("submit", async function (e) {
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
   e.preventDefault();
 
   const data = {
@@ -219,7 +218,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
   };
 
   try {
-    await fetch("https://script.google.com/macros/s/AKfycbxjNi5tmji_6zm7WqXrY8_qH5GIT8FuKJyAPr7oM9ohMcxvhfMTiNRcxhwWDz37nTYqCQ/exec", {
+    await fetch("YOUR_APPS_SCRIPT_EXEC_URL", {
       method: "POST",
       mode: "no-cors",
       body: JSON.stringify(data)
