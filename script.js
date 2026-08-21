@@ -247,6 +247,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
     }
 
     const data = {
+    
         name,
         email,
         phone,
@@ -280,9 +281,12 @@ document.getElementById("contactForm").addEventListener("submit", async function
   "https://script.google.com/macros/s/AKfycbxjNi5tmji_6zm7WqXrY8_qH5GIT8FuKJyAPr7oM9ohMcxvhfMTiNRcxhwWDz37nTYqCQ/exec",
   {
     method: "POST",
+    redirect: "follow",
     body: JSON.stringify(data)
   }
 );
+
+const result = await response.json();
 
 const result = await response.json();
 
