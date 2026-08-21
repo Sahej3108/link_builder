@@ -206,29 +206,54 @@ if (backToTopBtn) {
 
 
 
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-
-  const data = {
-    name: document.getElementById("name").value.trim(),
-    email: document.getElementById("email").value.trim(),
-    phone: document.getElementById("phoneNumber").value.trim(),
-    company: document.getElementById("company").value.trim(),
-    message: document.getElementById("message").value.trim()
-  };
-
+function doPost(e) {
   try {
-    await fetch("https://script.google.com/macros/s/AKfycbxjNi5tmji_6zm7WqXrY8_qH5GIT8FuKJyAPr7oM9ohMcxvhfMTiNRcxhwWDz37nTYqCQ/exec", {
-      method: "POST",
-      mode: "no-cors",
-      body: JSON.stringify(data)
+    const sheet = SpreadsheetApp
+      .openById("1KYrkNwv5KlzOit94ChlM6NFrK9HoXBprfUkquG6cqhc")
+      .getSheetByName("Sheet1");
+
+    const data = JSON.parse(e.postData.contents);
+
+    // Save to Google Sheet
+    sheet.appendRow([
+      new Date(),
+      data.name,
+      data.email,
+      data.phone,
+      data.company,
+      data.message
+    ]);
+
+    // Email notification
+    const html = `
+      <h2>New Website Enquiry</h2>
+      <table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;">
+        <tr><td><b>Name</b></td><td>${data.name}</td></tr>
+        <tr><td><b>Email</b></td><td>${data.email}</td></tr>
+        <tr><td><b>Phone</b></td><td>${data.phone}</td></tr>
+        <tr><td><b>Company</b></td><td>${data.company}</td></tr>
+        <tr><td><b>Message</b></td><td>${data.message}</td></tr>
+      </table>
+      <br>
+      <p>Submitted: ${new Date()}</p>
+    `;
+
+    MailApp.sendEmail({
+      to: "contact@linkoutmedia.com",
+      subject: "🔔 New Lead from LinkOutMedia Website",
+      htmlBody: html
     });
 
-    alert("Thank you! Your enquiry has been submitted.");
-    this.reset();
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "success" }))
+      .setMimeType(ContentService.MimeType.JSON);
 
   } catch (err) {
-    console.error(err);
-    alert("Submission failed.");
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        status: "error",
+        message: err.toString()
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
   }
-});
+}
