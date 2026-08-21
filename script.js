@@ -213,11 +213,11 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
     const form = this;
 
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const phone = form.phone.value.trim();
-    const company = form.company.value.trim();
-    const message = form.message.value.trim();
+   const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phoneNumber").value.trim();
+  const company = document.getElementById("company").value.trim();
+  const message = document.getElementById("message").value.trim();
 
     const nameRegex = /^[A-Za-z\s'-]{2,50}$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -247,12 +247,12 @@ document.getElementById("contactForm").addEventListener("submit", async function
     }
 
     const data = {
-  name: document.getElementById("name").value.trim(),
-  email: document.getElementById("email").value.trim(),
-  phone: document.getElementById("phoneNumber").value.trim(),
-  company: document.getElementById("company").value.trim(),
-  message: document.getElementById("message").value.trim()
-};
+        name,
+        email,
+        phone,
+        company,
+        message
+    };
 
     // fetch() code...
 });
@@ -267,12 +267,12 @@ document.getElementById("contactForm").addEventListener("submit", async function
     const form = this;
 
     const data = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        company: form.company.value,
-        message: form.message.value
-    };
+  name: document.getElementById("name").value.trim(),
+  email: document.getElementById("email").value.trim(),
+  phone: document.getElementById("phoneNumber").value.trim(),
+  company: document.getElementById("company").value.trim(),
+  message: document.getElementById("message").value.trim()
+};
 
     try {
 
