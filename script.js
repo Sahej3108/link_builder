@@ -218,7 +218,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
   };
 
   try {
-    await fetch("YOUR_APPS_SCRIPT_EXEC_URL", {
+    await fetch("https://script.google.com/macros/s/AKfycbxjNi5tmji_6zm7WqXrY8_qH5GIT8FuKJyAPr7oM9ohMcxvhfMTiNRcxhwWDz37nTYqCQ/exec", {
       method: "POST",
       mode: "no-cors",
       body: JSON.stringify(data)
