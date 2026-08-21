@@ -247,12 +247,12 @@ document.getElementById("contactForm").addEventListener("submit", async function
     }
 
     const data = {
-        name,
-        email,
-        phone,
-        company,
-        message
-    };
+  name: document.getElementById("name").value.trim(),
+  email: document.getElementById("email").value.trim(),
+  phone: document.getElementById("phoneNumber").value.trim(),
+  company: document.getElementById("company").value.trim(),
+  message: document.getElementById("message").value.trim()
+};
 
     // fetch() code...
 });
